@@ -5,7 +5,8 @@ resource "kubernetes_ingress_v1" "crapi-ingress" {
   spec {
     ingress_class_name = "nginx"
     rule {
-      host = try(data.tfe_outputs.nap[0].values.external_name, data.tfe_outputs.nic[0].values.external_name)
+      #host = try(data.tfe_outputs.nap[0].values.external_name, data.tfe_outputs.nic[0].values.external_name)
+      host = "*.com"
       http {
         path {
           path = "/"
