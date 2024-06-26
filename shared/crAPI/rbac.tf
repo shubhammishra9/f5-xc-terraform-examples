@@ -13,7 +13,7 @@ resource "kubernetes_role_binding_v1" "crapi-role-binding" {
       name = "crapi-waitfor-grant"
     }
     role_ref {
-      api_group = ""
+      api_group = "rbac.authorization.k8s.io"
       kind      = "ClusterRole"
       name      = "crapi-waitfor-reader"
     }
@@ -21,6 +21,6 @@ resource "kubernetes_role_binding_v1" "crapi-role-binding" {
         kind      = "ServiceAccount"
         name      = "default"
         namespace = "crapi"
-        api_group = ""
+        api_group = "rbac.authorization.k8s.io"
     }
 }

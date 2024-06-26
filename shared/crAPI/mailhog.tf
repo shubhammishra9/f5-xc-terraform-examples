@@ -105,7 +105,7 @@ resource "kubernetes_service_v1" "mailhog_web_service" {
       protocol    = "TCP"
     }
     session_affinity = "None"
-    type            = "CluserIP"
+    type            = "ClusterIP"
   }
 }
 
