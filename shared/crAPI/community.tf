@@ -44,25 +44,25 @@ resource "kubernetes_deployment_v1" "crapi-community-deployment" {
             init_container {
               name = "wait-for-postgres"
               image = "groundnuty/k8s-wait-for:v1.3"
-              image_pull_policy = Always
+              image_pull_policy = "Always"
               args = ["service", "postgresdb"]
             }
             init_container {
               name = "wait-for-mongo"
               image = "groundnuty/k8s-wait-for:v1.3"
-              image_pull_policy = Always
+              image_pull_policy = "Always"
               args = ["service", "mongodb"]
             }
             init_container {
               name = "wait-for-java"
               image = "groundnuty/k8s-wait-for:v1.3"
-              image_pull_policy = Always
+              image_pull_policy = "Always"
               args = ["service", "crapi-identity"]
             }
             container {
               name = "crapi-community"
               image = "groundnuty/crapi-community:latest"
-              image_pull_policy = Always
+              image_pull_policy = "Always"
               port {
                 container_port = 8087
               }

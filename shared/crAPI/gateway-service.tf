@@ -31,7 +31,7 @@ resource "kubernetes_deployment_v1" "crapi-gateway-deployment" {
                 container {
                 name = "gateway-service"
                 image = "crapi/crapi-service:latest"
-                image_pull_policy = Always
+                image_pull_policy = "Always"
                    port {
                        container_port = 8087
                    }
