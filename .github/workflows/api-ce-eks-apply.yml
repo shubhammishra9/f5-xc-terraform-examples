@@ -161,7 +161,7 @@ jobs:
     needs: terraform_eks
     defaults:
       run:
-        working-directory: ./shared/booksinfo/
+        working-directory: ./shared/crAPI/
 
     steps:
       - name: Checkout
