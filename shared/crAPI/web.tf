@@ -69,7 +69,7 @@ resource "kubernetes_service_v1" "crapi_web_service" {
     }
     port {
       port       = 30080
-      node_port  = 30080
+      #node_port  = 30080
       name       = "nginx"
     }
     type = "ClusterIP"

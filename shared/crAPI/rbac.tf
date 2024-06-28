@@ -21,6 +21,6 @@ resource "kubernetes_role_binding_v1" "crapi-role-binding" {
         kind      = "ServiceAccount"
         name      = "default"
         namespace = "crapi"
-        api_group = "rbac.authorization.k8s.io"
+        api_group = ""
     }
 }
