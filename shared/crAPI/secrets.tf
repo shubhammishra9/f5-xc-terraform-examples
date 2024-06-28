@@ -9,3 +9,10 @@ resource "kubernetes_secret" "jwks-secret" {
         "jwks.json" = base64encode(var.json_input)
     }
 }
+
+
+resource "kubernetes_namespace" "crapi" {
+  metadata {
+    name = "crapi"
+  }
+}
