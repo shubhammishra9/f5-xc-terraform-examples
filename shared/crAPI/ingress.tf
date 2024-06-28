@@ -1,4 +1,6 @@
 resource "kubernetes_ingress_v1" "crapi-ingress" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-ingress"
   }

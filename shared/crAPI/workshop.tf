@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "crapi_workshop_configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-workshop-configmap"
     labels = {
@@ -26,6 +28,8 @@ resource "kubernetes_config_map_v1" "crapi_workshop_configmap" {
 }
 
 resource "kubernetes_deployment_v1" "crapi_workshop_deployment" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-workshop"
   }
@@ -93,6 +97,8 @@ resource "kubernetes_deployment_v1" "crapi_workshop_deployment" {
 }
 
 resource "kubernetes_service_v1" "crapi_workshop_service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-workshop"
     labels = {

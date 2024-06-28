@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "crapi_identity_configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-identity-configmap"
     labels = {
@@ -33,6 +35,8 @@ resource "kubernetes_config_map_v1" "crapi_identity_configmap" {
 
 
 resource "kubernetes_deployment_v1" "crapi_identity" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-identity"
   }
@@ -104,6 +108,8 @@ resource "kubernetes_deployment_v1" "crapi_identity" {
 }
 
 resource "kubernetes_service_v1" "crapi_identity" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-identity"
     labels = {

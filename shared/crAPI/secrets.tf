@@ -1,4 +1,6 @@
 resource "kubernetes_secret" "jwks-secret" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
         name = "jwt-key-secret"
     }
@@ -9,7 +11,6 @@ resource "kubernetes_secret" "jwks-secret" {
         "jwks.json" = base64encode(var.json_input)
     }
 }
-
 
 resource "kubernetes_namespace" "crapi" {
   metadata {

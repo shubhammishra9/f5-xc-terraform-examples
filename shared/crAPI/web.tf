@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "crapi_web_configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-web-configmap"
     labels = {
@@ -13,6 +15,8 @@ resource "kubernetes_config_map_v1" "crapi_web_configmap" {
 }
 
 resource "kubernetes_deployment_v1" "crapi_web_deployment" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-web"
   }
@@ -57,6 +61,8 @@ resource "kubernetes_deployment_v1" "crapi_web_deployment" {
 }
 
 resource "kubernetes_service_v1" "crapi_web_service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "crapi-web"
     labels = {

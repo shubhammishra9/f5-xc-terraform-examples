@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "mongodb_configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "mongodb-config"
     labels = {
@@ -12,6 +14,8 @@ resource "kubernetes_config_map_v1" "mongodb_configmap" {
 }
 
 resource "kubernetes_persistent_volume_claim_v1" "mongodb_pv_claim" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "mongodb-pv-claim"
     labels = {
@@ -31,6 +35,8 @@ resource "kubernetes_persistent_volume_claim_v1" "mongodb_pv_claim" {
 }
 
 resource "kubernetes_stateful_set_v1" "mongodb_stateful_set" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "mongodb"
   }
@@ -79,6 +85,8 @@ resource "kubernetes_stateful_set_v1" "mongodb_stateful_set" {
 }
 
 resource "kubernetes_service_v1" "mongodb_service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "mongodb"
     labels = {

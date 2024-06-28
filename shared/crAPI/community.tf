@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "crapi-community-configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
         name = "crapi-community-configmap"
         labels = {
@@ -24,6 +26,8 @@ resource "kubernetes_config_map_v1" "crapi-community-configmap" {
 }
 
 resource "kubernetes_deployment_v1" "crapi-community-deployment" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
       name = "crapi-community"
     }
@@ -86,6 +90,8 @@ resource "kubernetes_deployment_v1" "crapi-community-deployment" {
 }
 
 resource "kubernetes_service_v1" "crapi-community-service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
       name = "crapi-community"
       labels = {

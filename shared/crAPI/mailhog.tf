@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "mailhog_configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "mailhog-configmap"
     labels = {
@@ -12,6 +14,8 @@ resource "kubernetes_config_map_v1" "mailhog_configmap" {
 }
 
 resource "kubernetes_deployment_v1" "mailhog_deployment" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name      = "mailhog"
     namespace = "crapi"
@@ -89,6 +93,8 @@ resource "kubernetes_deployment_v1" "mailhog_deployment" {
 }
 
 resource "kubernetes_service_v1" "mailhog_web_service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name      = "mailhog-web"
     namespace = "crapi"
@@ -110,6 +116,8 @@ resource "kubernetes_service_v1" "mailhog_web_service" {
 }
 
 resource "kubernetes_service_v1" "mailhog_service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name      = "mailhog"
     namespace = "crapi"

@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "postgres_configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "postgres-config"
     labels = {
@@ -13,6 +15,8 @@ resource "kubernetes_config_map_v1" "postgres_configmap" {
 }
 
 resource "kubernetes_persistent_volume_claim_v1" "postgres_pv_claim" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "postgres-pv-claim"
     labels = {
@@ -32,6 +36,8 @@ resource "kubernetes_persistent_volume_claim_v1" "postgres_pv_claim" {
 }
 
 resource "kubernetes_stateful_set_v1" "postgres_stateful_set" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "postgresdb"
   }
@@ -82,6 +88,8 @@ resource "kubernetes_stateful_set_v1" "postgres_stateful_set" {
 }
 
 resource "kubernetes_service_v1" "postgres_service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "postgresdb"
     labels = {

@@ -1,4 +1,6 @@
 resource "kubernetes_config_map_v1" "crapi-gateway-configmap" {
+  depends_on  = [kubernetes_namespace.crapi]
+
   metadata {
     name = "gateway-service-configmap"
     labels = {
@@ -11,6 +13,8 @@ resource "kubernetes_config_map_v1" "crapi-gateway-configmap" {
 }
 
 resource "kubernetes_deployment_v1" "crapi-gateway-deployment" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
       name = "gateway-service"
     }
@@ -50,6 +54,8 @@ resource "kubernetes_deployment_v1" "crapi-gateway-deployment" {
 }
 
 resource "kubernetes_service_v1" "crapi-gateway-service" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
       name = "gateway-service"
       labels = {

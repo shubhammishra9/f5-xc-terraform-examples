@@ -1,4 +1,6 @@
 resource "kubernetes_cluster_role" "crapi-role" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
       name = "crapi-waitfor-reader"
     }
@@ -9,6 +11,8 @@ resource "kubernetes_cluster_role" "crapi-role" {
     } 
 }
 resource "kubernetes_role_binding_v1" "crapi-role-binding" {
+  depends_on  = [kubernetes_namespace.crapi]
+
     metadata {
       name = "crapi-waitfor-grant"
     }
