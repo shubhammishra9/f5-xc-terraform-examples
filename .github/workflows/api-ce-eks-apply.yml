@@ -161,7 +161,7 @@ jobs:
     needs: terraform_eks
     defaults:
       run:
-        working-directory: ./shared/crAPI/
+        working-directory: ./shared/crapi-test/
 
     steps:
       - name: Checkout
