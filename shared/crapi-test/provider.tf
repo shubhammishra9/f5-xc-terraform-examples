@@ -1,3 +1,7 @@
+provider "aws" {
+    region     = local.aws_region
+}
+
 provider "helm" {
   kubernetes {
     host                   = local.host
