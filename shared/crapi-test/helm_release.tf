@@ -1,5 +1,5 @@
 resource "helm_release" "crapi" {
-  name       = "crapi-release"
+  name       = "crapi"
   chart      = "./helm"
 
   values = [
