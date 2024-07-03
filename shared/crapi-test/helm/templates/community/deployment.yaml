@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.community.name }}
+  namespace: {{ .Values.mailhog.namespace }}
   labels:
     release: {{ .Release.Name }}
     {{- with .Values.community.deploymentLabels }}

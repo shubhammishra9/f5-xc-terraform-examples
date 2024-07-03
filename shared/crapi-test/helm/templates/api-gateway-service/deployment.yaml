@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.apiGatewayService.name }}
+  namespace: {{ .Values.mailhog.namespace }}
   labels:
     release: {{ .Release.Name }}
     {{- with .Values.apiGatewayService.deploymentLabels }}

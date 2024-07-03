@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ .Values.identity.name }}
+  namespace: {{ .Values.mailhog.namespace }}
   labels:
     release: {{ .Release.Name }}
     {{- toYaml .Values.identity.deploymentLabels | nindent 4 }}
