@@ -155,8 +155,8 @@ jobs:
         run: terraform apply -auto-approve -input=false
 
 
-  terraform_bookinfo:
-    name: "Bookinfo App"
+  terraform_crapi:
+    name: "crAPI"
     runs-on: ubuntu-latest
     needs: terraform_eks
     defaults:
