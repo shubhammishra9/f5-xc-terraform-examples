@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: {{ .Values.mongodb.name }}
+  namespace: {{ .Values.mailhog.namespace }}
   labels:
     release: {{ .Release.Name }}
     {{- with .Values.mongodb.statefulsetLabels }}
