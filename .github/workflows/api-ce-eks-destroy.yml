@@ -418,5 +418,3 @@ jobs:
         if: github.ref == 'refs/heads/destroy-api-ce-eks' && github.event_name == 'push'
         run: terraform destroy -auto-approve -input=false
 
-
-
