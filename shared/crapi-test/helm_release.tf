@@ -1,13 +1,8 @@
-resource "kubernetes_namespace" "crapi-ns" {
-  metadata {
-    name = "crapi"
-  }
-}
-
 resource "helm_release" "crapi" {
-  depends_on  = [kubernetes_namespace.crapi-ns]
   name       = "crapi"
   chart      = "./helm"
+  namespace  = "crapi"
+  create_namespace = true
   values = [
     file("./helm/values.yaml")
   ]
