@@ -389,7 +389,7 @@ resource "volterra_http_loadbalancer" "lb_https" {
           flow_label {
             authentication {
               login {
-                disable_transaction_result = true
+                #disable_transaction_result = true
               }
             }
           }
@@ -449,9 +449,9 @@ resource "volterra_http_loadbalancer" "lb_https" {
     }
   }
 
-  dynamic "more_option" {
-      content {
-        idle_timeout = 300000
-      }
-    }
+  #dynamic "more_option" {
+  #    content {
+  #      idle_timeout = 300000
+  #    }
+  #  }
 }
