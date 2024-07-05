@@ -267,7 +267,7 @@ jobs:
           resource "kubectl_manifest" "configmap" {
               yaml_body = <<YAML
               apiVersion: v1
-              kind: ConfigMapDeployment
+              kind: ConfigMap
               metadata:
                 name: vpm-cfg
                 namespace: ves-system
