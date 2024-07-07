@@ -70,6 +70,8 @@ aws_ce_site = "false"
 site_name = ""
 
 # infra (Needed values: aws-infra, azure-infra, gcp-infra)
-aws   = ""
+aws   = "aws-infra"
 azure = ""
 gcp   = ""
+
+eks_ce_site = "true"
