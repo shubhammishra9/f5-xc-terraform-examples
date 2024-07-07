@@ -70,3 +70,4 @@ resource "null_resource" "check_site_status_cert" {
     #interpreter = ["/usr/bin/env", "bash", "-c"]
   }
 }
+
