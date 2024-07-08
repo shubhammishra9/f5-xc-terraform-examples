@@ -1,5 +1,5 @@
 #Assets
-skip_ha_az_node_group = false
+skip_ha_az_node_group = true
 desired_size = 2
 max_size = 2
 min_size= 2
