@@ -155,13 +155,13 @@ jobs:
         run: terraform apply -auto-approve -input=false
 
 
-  terraform_bookinfo:
-    name: "Bookinfo App"
+  terraform_crapi:
+    name: "crAPI app"
     runs-on: ubuntu-latest
     needs: terraform_eks
     defaults:
       run:
-        working-directory: ./shared/booksinfo/
+        working-directory: ./shared/crapi-helm/
 
     steps:
       - name: Checkout
@@ -180,7 +180,7 @@ jobs:
             cloud {
               organization = "${{ secrets.TF_CLOUD_ORGANIZATION }}"
               workspaces {
-                name = "${{ secrets.TF_CLOUD_WORKSPACE_BOOKINFO }}"
+                name = "${{ secrets.TF_CLOUD_WORKSPACE_CRAPI }}"
               }
             }
           }
@@ -233,7 +233,7 @@ jobs:
   terraform_ce:
     name: "F5XC CE on AWS EKS"
     runs-on: ubuntu-latest
-    needs: terraform_bookinfo
+    needs: terraform_crapi
     defaults:
       run:
         working-directory: ./aws/eks-cluster/ce-deployment
