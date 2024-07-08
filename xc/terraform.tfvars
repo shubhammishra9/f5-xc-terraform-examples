@@ -48,8 +48,8 @@ xc_resp_val_properties = [] #Example ["PROPERTY_HTTP_HEADERS", "PROPERTY_CONTENT
 xc_api_val_active = true
 xc_resp_val_active = false
 #Validation Enforment Type (only one of these should be set to true)
-enforcement_block = true
-enforcement_report = false
+enforcement_block = false
+enforcement_report = true
 #Allow access to unprotected endpoints 
 fall_through_mode_allow = false
 #Enable API Validation custom rules
