@@ -209,3 +209,5 @@ Keep rest of the values in terraform.tfvars as it is.
 **STEP 6:** Once the pipeline completes, verify your CE, Origin Pool and LB were deployed or destroyed based on your workflow.
 
 **STEP 7:** If you want to destroy the entire setup, checkout/create a new branch from ``deploy-api-ce-eks`` branch with name ``destroy-api-ce-eks`` which will trigger destroy work-flow to remove all resources
+
+
