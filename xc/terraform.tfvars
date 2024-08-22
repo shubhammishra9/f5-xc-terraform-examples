@@ -77,4 +77,3 @@ gcp   = ""
 eks_ce_site = "true"
 
 user_site = "true"
-
