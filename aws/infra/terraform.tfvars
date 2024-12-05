@@ -1,6 +1,6 @@
 #Global
-project_prefix = "prefix"
-resource_owner = "name"
+project_prefix = "sbm-test"
+resource_owner = "sbm"
 
 #AWS INFRA
 aws_region     = "ap-south-1"
