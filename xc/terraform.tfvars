@@ -1,3 +1,4 @@
+
 #Global
 #Only set to true if infrastructure is vk8s in XC
 vk8s = false
